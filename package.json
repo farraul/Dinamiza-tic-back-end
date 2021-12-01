@@ -9,11 +9,10 @@
     "dev": "nodemon index.js"
   },
   "keywords": [
-    "node",
-    "API",
-    "GeeksHubs"
+    "DYNAMIZA",
+    "API"
   ],
-  "author": "Jose Marin",
+  "author": "RAÚL FAR LLOBELL",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",

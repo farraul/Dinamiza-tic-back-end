@@ -2,58 +2,54 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-  
-      await queryInterface.bulkInsert('categories', [{
-        type: 'zombies',
-        age: 21,
+    
+      await queryInterface.bulkInsert('movies', [{
+        title : "Train to Busan",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        type: 'horror',
-        age: 16,
+        title : "Shaun of the dead",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        type: 'action',
-        age: 21,
+        title : "ZombieLand",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        type: 'drama',
-        age: 12,
+        title : "Evil Dead",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        type: 'fantasy',
-        age: 8,
+        title : "Evil Dead 2",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        type: 'mystery',
-        age: 12,
+        title : "Evil Dead 3",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        type: 'romance',
-        age: 12,
+        title : "28 Days Later",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        type: 'thriller',
-        age: 12,
+        title : "Zombiever",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        type: 'comedy',
-        age: 12,
+        title : "Overlord",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        title : "Black Sheep",
         createdAt: new Date(),
         updatedAt: new Date()
       }
@@ -62,7 +58,7 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     
-      await queryInterface.bulkDelete('categories', null, {});
+      await queryInterface.bulkDelete('movies', null, {});
      
   }
 };

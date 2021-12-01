@@ -3,7 +3,6 @@ const db = require("../models");
 const movies = db.movie;
 const Op = db.Sequelize.Op; //Import all ORM sequelize functions 
 
-var categoryModel  = require('../models').category;  //Add for dependency response
 
 const MovieController = {}; //Create the object controller
 
@@ -14,7 +13,7 @@ const MovieController = {}; //Create the object controller
 //GET all movies from database
 MovieController.getAll = (req, res) => {
     
-    movies.findAll({include: [{ model:categoryModel}]})
+    movies.findAll()
       .then(data => {
         res.send(data);
       })
@@ -25,30 +24,6 @@ MovieController.getAll = (req, res) => {
         });
       });
   };
-
-
-//-------------------------------------------------------------------------------------
-//GET movies by Id from database
-MovieController.getById = (req, res) => {
-    const id = req.params.id;
-
-    movies.findByPk(id, {include: [{ model:categoryModel}]})
-      .then(data => {
-        if (data) {
-          res.send(data);
-        } else {
-          res.status(404).send({
-            message: `Cannot find Tutorial with id=${id}.`
-          });
-        }
-      })
-      .catch(err => {
-        res.status(500).send({
-          message: "Error retrieving movies with id=" + id
-        });
-      });
-  };
-
 
 
 //-------------------------------------------------------------------------------------
@@ -64,8 +39,7 @@ MovieController.create = (req, res) => {
   
     // Create a Movies
     const newMovie = {
-      title: req.body.title,
-      categoryId: req.body.categoryId
+      title: req.body.title
     };
   
     // Save Movies in the database
@@ -110,21 +84,6 @@ MovieController.update = (req, res) => {
 
 
 //-------------------------------------------------------------------------------------
-//GET movie by Title from database 
-//FindByTitle
-  MovieController.getByTitle = (req, res) => {
-    movies.findAll({ where: { title: req.params.title } })
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving tutorials."
-        });
-      });
-  };
-
 
 //-------------------------------------------------------------------------------------
 //DELETE a movie by Id from database
@@ -154,22 +113,6 @@ MovieController.delete = (req, res) => {
 
 
 //-------------------------------------------------------------------------------------
-//DELETE all movies from database
-//delete all movies 
-  MovieController.deleteAll = (req, res) => {
-    movies.destroy({
-      where: {},
-      truncate: false
-    })
-      .then(nums => {
-        res.send({ message: `${nums} Movies were deleted successfully!` });
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while removing all movies."
-        });
-      });
-  };
+
 
 module.exports = MovieController;
