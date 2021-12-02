@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
 //Importamos Routes definidas en views
-const MovieRouter = require('./views/MovieRouter');
+const UsersdynamizaRouter = require('./views/users_dynamiza');
 
 //Rutas
-router.use('/movies', MovieRouter);
+router.use('/users', UsersdynamizaRouter);
 
 module.exports = router;

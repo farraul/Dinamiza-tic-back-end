@@ -30,5 +30,5 @@ app.use(router);
 db.then(()=>{
     //Starting server
         app.listen(PORT, ()=> console.log(`Server on port ${PORT}`.bgGreen.black));
-    })
-    .catch((err)=> console.log(err.message));   
+})
+.catch((err)=> console.log(err.message));   

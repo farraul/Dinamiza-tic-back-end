@@ -3,53 +3,53 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     
-      await queryInterface.bulkInsert('movies', [{
-        title : "Train to Busan",
+      await queryInterface.bulkInsert('users_dynamiza', [{
+        name : "Andre Dyna",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        title : "Shaun of the dead",
+        name : "Pepe",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        title : "ZombieLand",
+        name : "Gavi",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        title : "Evil Dead",
+        name : "Elsa Dyna",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        title : "Evil Dead 2",
+        name : "Evil Dead 2",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        title : "Evil Dead 3",
+        name : "Felipe",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        title : "28 Days Later",
+        name : "Mario",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        title : "Zombiever",
+        name : "Harry",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        title : "Overlord",
+        name : "Maria",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        title : "Black Sheep",
+        name : "Luisa",
         createdAt: new Date(),
         updatedAt: new Date()
       }
@@ -58,7 +58,7 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     
-      await queryInterface.bulkDelete('movies', null, {});
+      await queryInterface.bulkDelete('users_dynamiza', null, {});
      
   }
 };

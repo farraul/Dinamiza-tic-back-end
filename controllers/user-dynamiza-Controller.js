@@ -1,19 +1,14 @@
 //Importo modelo de datos
 const db = require("../models");
-const movies = db.movie;
+const users_dynamiza = db.users_dynamiza;
 const Op = db.Sequelize.Op; //Import all ORM sequelize functions 
-
-
-const MovieController = {}; //Create the object controller
-
-
+const UserController = {}; //Create the object controller
 
 //CRUD end-points Functions
-//-------------------------------------------------------------------------------------
 //GET all movies from database
-MovieController.getAll = (req, res) => {
+UserController.getAll = (req, res) => {
     
-    movies.findAll()
+  users_dynamiza.findAll()
       .then(data => {
         res.send(data);
       })
@@ -25,12 +20,10 @@ MovieController.getAll = (req, res) => {
       });
   };
 
-
-//-------------------------------------------------------------------------------------
 //CREATE a new movie in database
-MovieController.create = (req, res) => {
+UserController.create = (req, res) => {
     // Validate request
-    if (!req.body.title) {
+    if (!req.body.name) {
       res.status(400).send({
         message: "Content can not be empty!"
       });
@@ -38,12 +31,12 @@ MovieController.create = (req, res) => {
     }
   
     // Create a Movies
-    const newMovie = {
-      title: req.body.title
+    const new_User_dyna = {
+      name: req.body.name
     };
   
     // Save Movies in the database
-    movies.create(newMovie)
+    users_dynamiza.create(new_User_dyna)
       .then(data => {
         res.send(data);
       })
@@ -55,13 +48,11 @@ MovieController.create = (req, res) => {
       });
   };
 
-
-//-------------------------------------------------------------------------------------
 //UPDATE a movie from database
-MovieController.update = (req, res) => {
+UserController.update = (req, res) => {
     const id = req.params.id;
   
-    movies.update(req.body, {
+    users_dynamiza.update(req.body, {
       where: { id: id }
     })
       .then(num => {
@@ -82,15 +73,11 @@ MovieController.update = (req, res) => {
       });
   };
 
-
-//-------------------------------------------------------------------------------------
-
-//-------------------------------------------------------------------------------------
 //DELETE a movie by Id from database
-MovieController.delete = (req, res) => {
+UserController.delete = (req, res) => {
     const id = req.params.id;
   
-    movies.destroy({
+    users_dynamiza.destroy({
       where: { id: id }
     })
       .then(num => {
@@ -111,8 +98,4 @@ MovieController.delete = (req, res) => {
       });
   };
 
-
-//-------------------------------------------------------------------------------------
-
-
-module.exports = MovieController;
+module.exports = UserController;

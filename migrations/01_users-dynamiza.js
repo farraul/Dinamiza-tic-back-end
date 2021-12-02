@@ -1,14 +1,14 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('movies', {
+    await queryInterface.createTable('users_dynamiza', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
+      name: {
         type: Sequelize.STRING
       },
    
@@ -23,6 +23,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('movies');
+    await queryInterface.dropTable('users_dynamiza');
   }
 };
